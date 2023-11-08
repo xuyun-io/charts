@@ -5,6 +5,8 @@ metadata:
     app: node-exporter
   name: node-exporter
   namespace: kubestar-monitor
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   revisionHistoryLimit: 10
   selector:
