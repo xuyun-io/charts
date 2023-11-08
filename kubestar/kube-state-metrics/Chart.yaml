@@ -1,0 +1,22 @@
+annotations:
+  category: Analytics
+  licenses: Apache-2.0
+  images: |
+    - name: kube-state-metrics
+      image: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.6.0
+apiVersion: v1
+appVersion: v2.6.0
+description: kube-state-metrics is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects.
+home: https://qa-kubestar.nsstest.com
+icon: https://bitnami.com/assets/stacks/kube-state-metrics/img/kube-state-metrics-stack-220x234.png
+keywords:
+  - prometheus
+  - kube-state-metrics
+  - monitoring
+maintainers:
+  - name: Kubestar, Inc.
+    url: https://github.com/kubestar/kubestar-monitor
+name: kube-state-metrics
+sources:
+  - https://github.com/kubestar/kubestar-monitor/tree/main/kube-state-metrics
+version: 0.0.3

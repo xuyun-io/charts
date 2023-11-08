@@ -1,0 +1,78 @@
+kind: "DaemonSet"
+apiVersion: "apps/v1"
+metadata:
+  name: "cadvisor"
+  namespace: "kubestar-monitor"
+  labels:
+    app: "cadvisor"
+spec:
+  selector:
+    matchLabels:
+      app: "cadvisor"
+  template:
+    metadata:
+      labels:
+        app: "cadvisor"
+    spec:
+      volumes:
+        -
+          name: "rootfs"
+          hostPath:
+            path: "/"
+            type: ""
+        -
+          name: "run"
+          hostPath:
+            path: "/run"
+            type: ""
+        -
+          name: "sys"
+          hostPath:
+            path: "/sys"
+            type: ""
+        -
+          name: "data"
+          hostPath:
+            path: "/data/containerd/state/containerd"
+            type: ""
+      containers:
+        -
+          name: "cadvisor"
+          image: "gcr.io/cadvisor/cadvisor:v0.47.2"
+          args:
+            - "--event_storage_event_limit=default=0"
+            - "--event_storage_age_limit=default=0"
+            - "--store_container_labels=false"
+            - "--whitelisted_container_labels=io.kubernetes.container.name,io.kubernetes.pod.name,io.kubernetes.pod.namespace"
+            - "--disable_metrics=percpu,sched,udp,disk,diskIO,process,cpu,cpuLoad,cpu_topology,cpuset,hugetlb,memory,memory_numa,oom_event,perf_event,referenced_memory,resctrl,app,advtcp"
+            - "--v=1"
+            - "--containerd=/run/containerd/containerd.sock"
+          ports:
+            -
+              name: "http"
+              containerPort: 8080
+              protocol: "TCP"
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "500M"
+            requests:
+              cpu: "20m"
+              memory: "250M"
+          volumeMounts:
+            -
+              name: "rootfs"
+              readOnly: true
+              mountPath: "/rootfs"
+            -
+              name: "run"
+              readOnly: true
+              mountPath: "/run"
+            -
+              name: "sys"
+              readOnly: true
+              mountPath: "/sys"
+            -
+              name: "data"
+              readOnly: true
+              mountPath: "/data/containerd/state/containerd"

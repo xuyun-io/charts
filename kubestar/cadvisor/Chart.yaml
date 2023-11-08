@@ -1,0 +1,22 @@
+annotations:
+  category: Analytics
+  licenses: Apache-2.0
+  images: |
+    - name: cadvisor
+      image: gcr.io/cadvisor/cadvisor::v0.47.2
+apiVersion: v1
+appVersion: v0.47.2
+description: cAdvisor (Container Advisor) is an open-source tool by Google for monitoring container resource usage and performance. It auto-discovers all containers and collects real-time CPU, memory, and I/O usage data, integrates with Kubernetes, and exports to backends like InfluxDB or Google Cloud Monitoring.
+home: https://qa-kubestar.nsstest.com
+icon: https://bitnami.com/assets/stacks/node-exporter/img/node-exporter-stack-220x234.png
+keywords:
+- prometheus
+- cadvisor
+- monitoring
+maintainers:
+- name: Kubestar, Inc.
+  url: https://github.com/kubestar/kubestar-monitor
+name: cadvisor
+sources:
+- https://github.com/kubestar/kubestar-monitor/tree/main/cadvisor
+version: 0.0.1
