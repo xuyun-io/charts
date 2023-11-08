@@ -4,6 +4,8 @@ metadata:
   labels:
     app: kube-state-metrics
   name: kube-state-metrics
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -11,4 +13,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: kube-state-metrics
-  namespace: kubestar-monitor
+  namespace: {{ default "kubestar-monitor" .Release.Namespace }}

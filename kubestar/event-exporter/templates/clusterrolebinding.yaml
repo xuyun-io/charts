@@ -4,10 +4,12 @@ metadata:
   labels:
     name: event-exporter
   name: event-exporter
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 subjects:
   - kind: ServiceAccount
     name: event-exporter
-    namespace: sre
+    namespace: {{ default "kubestar-monitor" .Release.Namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

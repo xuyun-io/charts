@@ -4,7 +4,9 @@ metadata:
   labels:
     app: kube-state-metrics
   name: kube-state-metrics
-  namespace: kubestar-monitor
+  namespace: {{ default "kubestar-monitor" .Release.Namespace }}
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   clusterIP: None
   ports:

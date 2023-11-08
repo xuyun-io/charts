@@ -4,6 +4,8 @@ metadata:
   labels:
     app: kube-state-metrics
   name: kube-state-metrics
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 rules:
   - apiGroups:
       - ""

@@ -2,9 +2,11 @@ kind: "DaemonSet"
 apiVersion: "apps/v1"
 metadata:
   name: "cadvisor"
-  namespace: "kubestar-monitor"
   labels:
     app: "cadvisor"
+  namespace: {{ default "kubestar-monitor" .Release.Namespace }}
+  annotations:
+    {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   selector:
     matchLabels:
