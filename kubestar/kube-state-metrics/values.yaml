@@ -14,3 +14,5 @@ resources:
     memory: 200Mi
 
 annotations: {}
+
+podAnnotations: {}

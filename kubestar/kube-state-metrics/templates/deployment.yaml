@@ -16,6 +16,8 @@ spec:
     metadata:
       labels:
         app: kube-state-metrics
+      annotations:
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
     spec:
       containers:
         - image: {{ include "common.image" . }}

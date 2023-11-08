@@ -10,13 +10,13 @@ description: Prometheus exporter for hardware and OS metrics exposed by UNIX ker
 home: https://qa-kubestar.nsstest.com
 icon: https://bitnami.com/assets/stacks/node-exporter/img/node-exporter-stack-220x234.png
 keywords:
-- prometheus
-- node-exporter
-- monitoring
+  - prometheus
+  - node-exporter
+  - monitoring
 maintainers:
-- name: KubeStar, Inc.
-  url: https://github.com/xuyun-io/charts
+  - name: KubeStar, Inc.
+    url: https://github.com/xuyun-io/charts
 name: node-exporter
 sources:
-- https://github.com/xuyun-io/charts/tree/master/kubestar/node-exporter
+  - https://github.com/xuyun-io/charts/tree/master/kubestar/node-exporter
 version: 0.1.0

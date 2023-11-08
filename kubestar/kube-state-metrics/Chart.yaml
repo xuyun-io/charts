@@ -10,13 +10,13 @@ description: kube-state-metrics is a simple service that listens to the Kubernet
 home: https://qa-kubestar.nsstest.com
 icon: https://bitnami.com/assets/stacks/kube-state-metrics/img/kube-state-metrics-stack-220x234.png
 keywords:
-- prometheus
-- kube-state-metrics
-- monitoring
+  - prometheus
+  - kube-state-metrics
+  - monitoring
 maintainers:
-- name: KubeStar, Inc.
-  url: https://github.com/xuyun-io/charts
+  - name: KubeStar, Inc.
+    url: https://github.com/xuyun-io/charts
 name: kube-state-metrics
 sources:
-- https://github.com/xuyun-io/charts/tree/master/kubestar/kube-state-metrics
+  - https://github.com/xuyun-io/charts/tree/master/kubestar/kube-state-metrics
 version: 0.1.0

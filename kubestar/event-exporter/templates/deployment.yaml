@@ -18,15 +18,13 @@ spec:
   template:
     metadata:
       annotations:
-        prometheus.io/path: /metrics
-        prometheus.io/port: '9102'
-        prometheus.io/scrape: 'true'
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
       labels:
         app: event-exporter
     spec:
       containers:
         - name: event-exporter
-          image: 'kubestar/event-exporter:v1.0.1'
+          image: {{ include "common.image" . }}
           imagePullPolicy: Always
           args:
             - --eventType=Warning
@@ -34,9 +32,6 @@ spec:
             - containerPort: 9102
               name: http
           resources:
-            limits:
-              memory: 100Mi
-            requests:
-              memory: 40Mi
+            {{- toYaml .Values.resources | nindent 12 }}
       serviceAccountName: event-exporter
       terminationGracePeriodSeconds: 30

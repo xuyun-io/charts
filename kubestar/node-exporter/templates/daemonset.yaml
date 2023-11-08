@@ -16,6 +16,8 @@ spec:
     metadata:
       labels:
         app: node-exporter
+      annotations:
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
     spec:
       containers:
         - args:

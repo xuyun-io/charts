@@ -6,17 +6,17 @@ annotations:
       image: kubestar/event-exporter:v1.0.1
 apiVersion: v1
 appVersion: v1.0.1
-description: A Helm chart to export kubernetes events to metrics API server
+description: A kubernetes agent to convert events to prometheus metrics
 home: https://qa-kubestar.nsstest.com
 icon: https://bitnami.com/assets/stacks/node-exporter/img/node-exporter-stack-220x234.png
 keywords:
-- prometheus
-- event-exporter
-- monitoring
+  - prometheus
+  - event-exporter
+  - monitoring
 maintainers:
-- name: Kubestar, Inc.
-  url: https://github.com/kubestar/kubestar-monitor
+  - name: KubeStar, Inc.
+    url: https://github.com/xuyun-io/charts
 name: event-exporter
 sources:
-- https://github.com/kubestar/kubestar-monitor/tree/main/event-exporter
-version: 0.0.3
+  - https://github.com/xuyun-io/charts/tree/master/kubestar/event-exporter
+version: 0.1.0
