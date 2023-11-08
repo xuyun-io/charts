@@ -2,7 +2,7 @@ global:
 
 image:
   repository: prom/node-exporter
-  tag: v0.18.0
+  tag: v1.6.0
   pullSecrets: []
 
 resources:
