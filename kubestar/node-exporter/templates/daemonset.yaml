@@ -19,7 +19,7 @@ spec:
         - args:
             - --path.procfs=/host/proc
             - --path.sysfs=/host/sys
-          image: prom/node-exporter:v0.18.0
+          image: {{ include "common.image" . }}
           imagePullPolicy: IfNotPresent
           name: node-exporter
           ports:
@@ -27,14 +27,7 @@ spec:
               name: metrics
               protocol: TCP
           resources:
-            limits:
-              cpu: 100m
-              memory: 200Mi
-            requests:
-              cpu: 100m
-              memory: 200Mi
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
+            {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /host/proc
               name: proc
@@ -42,9 +35,10 @@ spec:
             - mountPath: /host/sys
               name: sys
               readOnly: true
-      dnsPolicy: ClusterFirst
-      # hostNetwork: true
-      hostPID: true
+      {{- with .Values.image.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
@@ -58,7 +52,3 @@ spec:
             path: /sys
             type: ""
           name: sys
-  updateStrategy:
-    rollingUpdate:
-      maxUnavailable: 3
-    type: RollingUpdate

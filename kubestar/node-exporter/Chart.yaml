@@ -5,7 +5,7 @@ annotations:
     - name: node-exporter
       image: prom/node-exporter:v0.18.0
 apiVersion: v1
-appVersion: 0.0.1
+appVersion: v0.18.0
 description: Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, with pluggable metric collectors.
 home: https://qa-kubestar.nsstest.com
 icon: https://bitnami.com/assets/stacks/node-exporter/img/node-exporter-stack-220x234.png
@@ -14,9 +14,9 @@ keywords:
 - node-exporter
 - monitoring
 maintainers:
-- name: Kubestar, Inc.
-  url: https://github.com/kubestar/kubestar-monitor
+- name: KubeStar, Inc.
+  url: https://github.com/xuyun-io/charts
 name: node-exporter
 sources:
-- https://github.com/kubestar/kubestar-monitor/tree/main/node-exporter
-version: 0.0.1
+- https://github.com/xuyun-io/charts/tree/master/kubestar/node-exporter
+version: 0.0.2
