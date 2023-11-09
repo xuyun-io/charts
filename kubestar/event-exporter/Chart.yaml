@@ -19,4 +19,4 @@ maintainers:
 name: event-exporter
 sources:
   - https://github.com/xuyun-io/charts/tree/master/kubestar/event-exporter
-version: 0.1.3
+version: 0.1.6

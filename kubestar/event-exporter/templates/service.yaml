@@ -6,7 +6,7 @@ metadata:
   name: event-exporter
   namespace: {{ default "kubestar-monitor" .Release.Namespace }}
   annotations:
-    {{- toYaml .Values.annotations | nindent 4 }}
+    {{- include "common.annotations" . | nindent 4 }}
 spec:
   ports:
     - name: http
