@@ -43,5 +43,5 @@ spec:
             timeoutSeconds: 5
           securityContext:
             runAsUser: 65534
-      serviceAccountName: kubestar-kube-state-metrics
+      serviceAccountName: kube-state-metrics
 
