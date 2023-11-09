@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: event-exporter
+    app: event-exporter
   name: event-exporter
   namespace: {{ default "kubestar-monitor" .Release.Namespace }}
   annotations:
