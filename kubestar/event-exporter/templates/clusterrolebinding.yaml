@@ -9,7 +9,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: event-exporter
-    namespace: {{ default "kubestar-monitor" .Release.Namespace }}
+    namespace: {{ default "kubestar" .Release.Namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

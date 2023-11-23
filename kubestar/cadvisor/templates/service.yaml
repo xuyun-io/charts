@@ -5,7 +5,7 @@ metadata:
     app: cadvisor
     name: cadvisor
   name: cadvisor
-  namespace: {{ default "kubestar-monitor" .Release.Namespace }}
+  namespace: {{ default "kubestar" .Release.Namespace }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:

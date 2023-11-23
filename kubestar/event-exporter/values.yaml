@@ -21,6 +21,9 @@ resources:
     cpu: 20m
     memory: 100Mi
 
+
+
+
 ## @param annotations
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
 ##
@@ -30,3 +33,9 @@ annotations: {}
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
 ##
 podAnnotations: {}
+
+prometheus:
+  monitor:
+    enabled: true
+    release: "kubestar"
+

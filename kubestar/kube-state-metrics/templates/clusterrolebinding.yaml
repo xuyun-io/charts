@@ -13,4 +13,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: kube-state-metrics
-  namespace: {{ default "kubestar-monitor" .Release.Namespace }}
+  namespace: {{ default "kubestar" .Release.Namespace }}
