@@ -6,6 +6,8 @@ cAdvisor (Container Advisor) is an open-source tool developed by Google that pro
 
 This tool is designed to be integrated into larger systems without much difficulty. For instance, it is used in Kubernetes to obtain the metrics it provides about containers. cAdvisor supports a wide variety of container runtimes, including Docker, containerd, rkt, and lxc.
 
+Support runtime containerd
+
 ## TL;DR
 
 ```console

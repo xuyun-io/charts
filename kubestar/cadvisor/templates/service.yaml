@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     app: cadvisor
-    name: cadvisor
   name: cadvisor
   namespace: {{ default "kubestar" .Release.Namespace }}
   annotations:
@@ -16,4 +15,3 @@ spec:
       targetPort: 8080
   selector:
     app: cadvisor
-    name: cadvisor

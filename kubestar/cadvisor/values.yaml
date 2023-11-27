@@ -36,9 +36,9 @@ containerArgs:
 - "--event_storage_age_limit=default=0"
 - "--store_container_labels=false"
 - "--whitelisted_container_labels=io.kubernetes.container.name,io.kubernetes.pod.name,io.kubernetes.pod.namespace"
-- "--disable_metrics=percpu,sched,udp,disk,diskIO,process,cpu,cpuLoad,cpu_topology,cpuset,hugetlb,memory,memory_numa,oom_event,perf_event,referenced_memory,resctrl,app,advtcp"
+- "--disable_metrics=percpu,sched,udp,disk,diskIO,process,cpu,cpuLoad,cpu_topology,cpuset,hugetlb,memory,memory_numa,oom_event,perf_event,referenced_memory,resctrl,app"
 - "--v=1"
-- "--containerd=/run/containerd/containerd.sock"
+#- "--containerd=/run/containerd/containerd.sock"
 
 
 volumes:
@@ -54,11 +54,10 @@ volumes:
     hostPath:
       path: "/sys"
       type: ""
-  - name: data
+  - name: var
     hostPath:
-      path: "/data/containerd/state/containerd"
+      path: "/var"
       type: ""
-
 volumeMounts:
   - name: rootfs
     mountPath: "/rootfs"
@@ -69,6 +68,10 @@ volumeMounts:
   - name: sys
     mountPath: "/sys"
     readOnly: true
-  - name: data
-    mountPath: "/data/containerd/state/containerd"
+  - name: var
+    mountPath: "/var"
     readOnly: true
+prometheus:
+  monitor:
+    enabled: true
+    release: "ks-monitor"
