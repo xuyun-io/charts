@@ -29,4 +29,4 @@ spec:
       volumes:
         - name: tls-cert
           secret:
-            secretName: security-webhook
+            secretName: security-webhook-certificate-secret
