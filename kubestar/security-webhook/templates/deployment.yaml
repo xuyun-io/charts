@@ -4,8 +4,9 @@ metadata:
   labels:
     app: security-webhook
   annotations:
-      {{- include "common.annotations" . | nindent 4 }}
+    {{- include "common.annotations" . | nindent 4 }}
   name: security-webhook
+  namespace: {{ .Release.Namespace }}
 spec:
   selector:
     matchLabels:

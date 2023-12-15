@@ -3,7 +3,7 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: security-webhook-validate
   annotations:
-    cert-manager.io/inject-ca-from: .{{ .Release.Namespace }}/security-webhook-certificate
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/security-webhook-certificate
 webhooks:
   - admissionReviewVersions:
       - v1
@@ -11,7 +11,7 @@ webhooks:
       caBundle: ""
       service:
         name: security-webhook
-        namespace: .{{ .Release.Namespace }}
+        namespace: {{ .Release.Namespace }}
         port: 443
         path: /validate-privileged-container
     failurePolicy: Fail
