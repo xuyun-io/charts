@@ -19,8 +19,8 @@ spec:
     - security-webhook
     - security-webhook.{{ .Release.Namespace }}
     - security-webhook.{{ .Release.Namespace }}.svc
-  duration: 87600h
-  renewBefore: 7200h
+  duration: {{ .Values.certificate.duration }}
+  renewBefore: {{ .Values.certificate.renewBefore }}
   issuerRef:
     kind: Issuer
     name: security-webhook-issuer
