@@ -1,0 +1,21 @@
+annotations:
+  category: Analytics
+  licenses: Apache-2.0
+  images: |
+    - name: security-webhook
+      image: kubestar/security-webhook:v1.0.0
+apiVersion: v1
+appVersion: v1.0.0
+description: A kubernetes validating admission controller to check resource security configuration
+home: https://qa-kubestar.nsstest.com
+icon: https://bitnami.com/assets/stacks/node-exporter/img/node-exporter-stack-220x234.png
+keywords:
+  - validating admission controller
+  - security
+maintainers:
+  - name: KubeStar, Inc.
+    url: https://github.com/xuyun-io/charts
+name: security-webhook
+sources:
+  - https://github.com/xuyun-io/charts/tree/master/kubestar/security-webhook
+version: 0.0.1

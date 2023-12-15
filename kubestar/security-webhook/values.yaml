@@ -1,0 +1,5 @@
+global:
+
+image:
+  repository: kubestar/event-exporter
+  tag: v1.0.3

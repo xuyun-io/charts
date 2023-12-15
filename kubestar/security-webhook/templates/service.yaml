@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-webhook
+  annotations:
+  {{- include "common.annotations" . | nindent 4 }}
+  labels:
+    app: security-webhook
+spec:
+  selector:
+    app: security-webhook
+  ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 9443
+  type: ClusterIP

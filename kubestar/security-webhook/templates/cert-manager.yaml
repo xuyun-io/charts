@@ -1,0 +1,27 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: security-webhook-issuer
+  annotations:
+    {{- include "common.annotations" . | nindent 4 }}
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: security-webhook-certificate
+  annotations:
+    {{- include "common.annotations" . | nindent 4 }}
+spec:
+  dnsNames:
+    - security-webhook
+    - security-webhook.{{ .Release.Namespace }}
+    - security-webhook.{{ .Release.Namespace }}.svc
+  duration: 87600h
+  renewBefore: 7200h
+  issuerRef:
+    kind: Issuer
+    name: security-webhook-issuer
+  secretName: security-webhook-certificate-secret

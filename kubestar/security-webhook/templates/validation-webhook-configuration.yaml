@@ -1,0 +1,40 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: security-webhook-validate
+  annotations:
+    cert-manager.io/inject-ca-from: .{{ .Release.Namespace }}/security-webhook-certificate
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      caBundle: ""
+      service:
+        name: security-webhook
+        namespace: .{{ .Release.Namespace }}
+        port: 443
+        path: /validate-privileged-container
+    failurePolicy: Fail
+    name: validate-privileged-container.{{ .Release.Namespace }}.svc
+    namespaceSelector:
+      matchExpressions:
+        - key: "kubernetes.io/metadata.name"
+          operator: NotIn
+          values: ["kube-system"]
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - deployments
+          - statefulsets
+          - cronjobs
+          - jobs
+          - daemonsets
+        scope: '*'
+    sideEffects: None
+    timeoutSeconds: 3
