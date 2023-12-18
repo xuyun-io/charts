@@ -2,8 +2,19 @@ global:
 
 image:
   repository: kubestar/security-webhook
-  tag: v1.0.0
+  tag: v1.0.4
 
 certificate:
   duration: 87600h
   renewBefore: 7200h
+
+configmap:
+  forbiddenPrivilegedContainer: true
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 200Mi
+  requests:
+    cpu: 20m
+    memory: 100Mi

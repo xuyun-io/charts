@@ -24,10 +24,27 @@ spec:
           ports:
             - containerPort: 9443
               protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /etc/certs/
               name: tls-cert
+            {{- if .Values.configmap }}
+            - mountPath: /app/configs/default.yaml
+              name: cm-default-configs
+              subPath: default.yaml
+            {{- end}}
       volumes:
         - name: tls-cert
           secret:
             secretName: security-webhook-certificate-secret
+        {{- if .Values.configmap }}
+        - name: cm-default-configs
+          configMap:
+            name: security-webhook
+            items:
+              - key: default.yaml
+                path: default.yaml
+                mode: 292
+            defaultMode: 292
+        {{- end}}

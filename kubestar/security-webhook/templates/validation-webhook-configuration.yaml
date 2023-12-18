@@ -13,7 +13,7 @@ webhooks:
         name: security-webhook
         namespace: {{ .Release.Namespace }}
         port: 443
-        path: /validate-privileged-container
+        path: /security-validate
     failurePolicy: Fail
     name: validate-privileged-container.{{ .Release.Namespace }}.svc
     namespaceSelector:
