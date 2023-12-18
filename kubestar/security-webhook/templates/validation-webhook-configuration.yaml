@@ -23,7 +23,7 @@ webhooks:
           values: ["kube-system"]
     rules:
       - apiGroups:
-          - ""
+          - "apps"
         apiVersions:
           - v1
         operations:
@@ -32,8 +32,6 @@ webhooks:
         resources:
           - deployments
           - statefulsets
-          - cronjobs
-          - jobs
           - daemonsets
         scope: '*'
     sideEffects: None
