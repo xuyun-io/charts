@@ -10,7 +10,7 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 9102
-      targetPort: 9102
+      port: 8080
+      targetPort: 8080
   selector:
     app: event-exporter
