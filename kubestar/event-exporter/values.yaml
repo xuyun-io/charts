@@ -3,7 +3,7 @@ global:
 
 image:
   repository: kubestar/event-exporter
-  tag: v1.0.5
+  tag: latest
   ## Optionally specify an array of imagePullSecrets.
   ## Secrets must be manually created in the namespace.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
@@ -36,6 +36,6 @@ podAnnotations: {}
 
 prometheus:
   monitor:
-    enabled: true
+    enabled: false
     release: "ks-monitor"
 
