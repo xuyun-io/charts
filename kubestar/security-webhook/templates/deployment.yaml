@@ -27,10 +27,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /etc/certs/
+            - mountPath: /home/netstars/app/certs/
               name: tls-cert
             {{- if .Values.configmap }}
-            - mountPath: /app/configs/default.yaml
+            - mountPath: /home/netstars/app/configs/default.yaml
               name: cm-default-configs
               subPath: default.yaml
             {{- end}}
